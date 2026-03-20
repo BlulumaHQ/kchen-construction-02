@@ -1,9 +1,70 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Quote } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
 import heroImage from "@/assets/hero-home.jpg";
+import { toast } from "sonner";
+
+function HeroContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setTimeout(() => {
+      toast.success("Thank you! We'll be in touch shortly.");
+      setForm({ name: "", email: "", phone: "", message: "" });
+      setSubmitting(false);
+    }, 800);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="bg-card/95 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-xl space-y-4 w-full max-w-md">
+      <h3 className="text-lg font-semibold text-card-foreground">Get a Free Consultation</h3>
+      <input
+        type="text"
+        placeholder="Full Name"
+        required
+        value={form.name}
+        onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+      />
+      <input
+        type="email"
+        placeholder="Email Address"
+        required
+        value={form.email}
+        onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+      />
+      <input
+        type="tel"
+        placeholder="Phone Number"
+        value={form.phone}
+        onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+      />
+      <textarea
+        placeholder="Tell us about your project..."
+        rows={3}
+        required
+        value={form.message}
+        onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+      />
+      <button
+        type="submit"
+        disabled={submitting}
+        className="w-full rounded bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+      >
+        {submitting ? "Sending..." : "Send Message"}
+      </button>
+    </form>
+  );
+}
 
 export default function Index() {
   usePageMeta({
@@ -18,22 +79,31 @@ export default function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[70vh] md:h-[80vh] flex items-center">
+      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center">
         <img src={heroImage} alt="Modern construction project in Vancouver" className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
-        <div className="relative z-10 section-padding max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[hsl(var(--primary-foreground))] leading-tight">
-            Building Excellence<br />Across Vancouver
-          </h1>
-          <p className="mt-4 text-lg text-[hsl(var(--primary-foreground)/0.85)] max-w-xl">
-            Integrated design, project, and construction management services for discerning clients.
-          </p>
-          <Link
-            to="/projects"
-            className="mt-8 inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            View Our Work <ArrowRight className="h-4 w-4" />
-          </Link>
+        <div className="relative z-10 section-padding w-full">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 max-w-6xl mx-auto">
+            {/* Left – Text */}
+            <div className="flex-1 max-w-xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[hsl(var(--primary-foreground))] leading-tight">
+                Building Excellence<br />Across Vancouver
+              </h1>
+              <p className="mt-4 text-lg text-[hsl(var(--primary-foreground)/0.85)] max-w-xl">
+                Integrated design, project, and construction management services for discerning clients.
+              </p>
+              <Link
+                to="/projects"
+                className="mt-8 inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                View Our Work <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            {/* Right – Contact Form */}
+            <div className="flex-1 flex justify-center md:justify-end w-full md:w-auto">
+              <HeroContactForm />
+            </div>
+          </div>
         </div>
       </section>
 
