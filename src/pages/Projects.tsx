@@ -5,19 +5,16 @@ import { useProjects } from "@/data/projects";
 import ProjectFilter from "@/components/ProjectFilter";
 import ProjectCard from "@/components/ProjectCard";
 import heroImage from "@/assets/hero/granville_feature.webp.asset.json";
+import { useT } from "@/i18n";
 
 export default function Projects() {
-  usePageMeta({
-    title: "Projects | K. Chen Construction Management",
-    description: "Explore our portfolio of residential and commercial construction projects across Greater Vancouver.",
-  });
+  const t = useT();
+  usePageMeta({ title: t("projects.metaTitle"), description: t("projects.metaDesc") });
 
   const { projects, loading, error } = useProjects();
   const [category, setCategory] = useState<string | null>(null);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
-  // Filter options are derived from the data — whatever categories/services
-  // exist in the CMS show up here automatically.
   const categories = useMemo(
     () => Array.from(new Set(projects.map((p) => p.category).filter(Boolean))).sort(),
     [projects],
@@ -48,11 +45,10 @@ export default function Projects() {
 
   return (
     <>
-      {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage.url} alt="Our Projects" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt={t("projects.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
-        <h1 className="page-hero-title">Projects</h1>
+        <h1 className="page-hero-title">{t("projects.pageTitle")}</h1>
       </section>
 
       <section className="section-padding py-16">
@@ -68,10 +64,10 @@ export default function Projects() {
             resultCount={filtered.length}
           />
 
-          {loading && <p className="text-center text-muted-foreground py-12">Loading projects…</p>}
+          {loading && <p className="text-center text-muted-foreground py-12">{t("projects.loading")}</p>}
 
           {error && !loading && (
-            <p className="text-center text-destructive py-12">Couldn’t load projects. Please try again later.</p>
+            <p className="text-center text-destructive py-12">{t("projects.error")}</p>
           )}
 
           {!loading && !error && (
@@ -83,7 +79,7 @@ export default function Projects() {
           )}
 
           {!loading && !error && filtered.length === 0 && (
-            <p className="text-center text-muted-foreground py-12">No projects match the selected filters.</p>
+            <p className="text-center text-muted-foreground py-12">{t("projects.none")}</p>
           )}
         </div>
       </section>

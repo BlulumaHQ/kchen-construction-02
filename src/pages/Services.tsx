@@ -3,66 +3,38 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, Home, HardHat, ClipboardList, PenTool } from "lucide-react";
 import heroImage from "@/assets/hero/t-go-tea_06.webp.asset.json";
 import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
-
-const services = [
-  {
-    icon: HardHat,
-    title: "Construction Management",
-    tagline: "We take care of everything",
-    desc: "KChen delivers high-quality construction on budget, on time, and to our clients' satisfaction. From pre-construction planning — budgeting, scheduling, and identifying challenges and solutions — through a transparent bidding process, cost control, and on-site supervision, we ensure quality standards right through to completion.",
-  },
-  {
-    icon: PenTool,
-    title: "Design-Build",
-    tagline: "Transforming dreams into reality",
-    desc: "Our designers from North America, Europe, and Asia bring diverse cultural backgrounds to every project — from single-family homes to multi-family residences to commercial spaces. The integrated design-build process keeps design and construction coordinated, so projects run smoothly without the usual miscommunication between teams.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Project Management / Owner's Representative",
-    tagline: "We have your best interest in mind",
-    desc: "With deep local knowledge, expertise, and a wide industry network, we help clients maximize their investment potential and assess project feasibility — including years of experience working with government bodies and local authorities. As your Owner's Representative, we protect your interests and provide strategy throughout development and construction.",
-  },
-];
-
-const categories = [
-  {
-    icon: Home,
-    title: "Residential",
-    tagline: "Your home is our home",
-    desc: "We don't just build houses — we build lasting relationships. From custom single-family homes to multi-family townhomes and condominiums, we build each home as if it were our own, helping clients create the sanctuary where lasting memories are made.",
-  },
-  {
-    icon: Building2,
-    title: "Commercial",
-    tagline: "Your business's problem solver",
-    desc: "We're in the business of supporting your success. Our team brings concrete, hands-on experience across offices, financial institutions, healthcare, restaurants, and religious buildings — turning your vision into reality, whatever the challenge.",
-  },
-];
+import { useT } from "@/i18n";
 
 export default function Services() {
-  usePageMeta({
-    title: "Services | K. Chen Construction Management",
-    description: "Construction management, design-build, and project management services for residential and commercial projects across Greater Vancouver.",
-  });
+  const t = useT();
+  usePageMeta({ title: t("services.metaTitle"), description: t("services.metaDesc") });
 
   const ref = useScrollReveal<HTMLElement>();
   const typeRef = useScrollReveal<HTMLElement>();
 
+  const services = [
+    { icon: HardHat, title: t("services.cm.title"), tagline: t("services.cm.tag"), desc: t("services.cm.desc") },
+    { icon: PenTool, title: t("services.db.title"), tagline: t("services.db.tag"), desc: t("services.db.desc") },
+    { icon: ClipboardList, title: t("services.pm.title"), tagline: t("services.pm.tag"), desc: t("services.pm.desc") },
+  ];
+
+  const categories = [
+    { icon: Home, title: t("services.res.title"), tagline: t("services.res.tag"), desc: t("services.res.desc") },
+    { icon: Building2, title: t("services.com.title"), tagline: t("services.com.tag"), desc: t("services.com.desc") },
+  ];
+
   return (
     <>
-      {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage.url} alt="Our Services" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt={t("services.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
-        <h1 className="page-hero-title">Services</h1>
+        <h1 className="page-hero-title">{t("services.pageTitle")}</h1>
       </section>
 
-      {/* Services Grid */}
       <section ref={ref} className="section-padding py-20">
         <div className="max-w-6xl mx-auto">
-          <p className="section-heading reveal-up">WHAT WE DO</p>
-          <h2 className="section-title mb-12 reveal-up">Comprehensive Construction Solutions</h2>
+          <p className="section-heading reveal-up">{t("services.kicker")}</p>
+          <h2 className="section-title mb-12 reveal-up">{t("services.title")}</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <div
@@ -82,7 +54,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Residential / Commercial */}
       <section
         ref={typeRef}
         className="section-padding py-20 bg-secondary relative"
@@ -93,8 +64,8 @@ export default function Services() {
         }}
       >
         <div className="max-w-6xl mx-auto">
-          <p className="section-heading reveal-up">WHO WE BUILD FOR</p>
-          <h2 className="section-title mb-12 reveal-up">Residential &amp; Commercial</h2>
+          <p className="section-heading reveal-up">{t("services.forKicker")}</p>
+          <h2 className="section-title mb-12 reveal-up">{t("services.forTitle")}</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {categories.map((c, i) => (
               <div

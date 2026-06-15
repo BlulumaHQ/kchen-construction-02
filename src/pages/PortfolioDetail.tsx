@@ -5,15 +5,18 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useProjects } from "@/data/projects";
 import Lightbox from "@/components/Lightbox";
+import { useT, useLocalePath } from "@/i18n";
 
 export default function PortfolioDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { projects, loading, error } = useProjects();
   const project = projects.find((p) => p.slug === slug);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const t = useT();
+  const lp = useLocalePath();
 
   usePageMeta({
-    title: project ? `${project.title} | K. Chen Construction Management` : "Project",
+    title: project ? `${project.title} | K. Chen Construction Management` : t("portfolio.notFound"),
     description: project?.description?.slice(0, 155) || "",
   });
 
@@ -22,7 +25,7 @@ export default function PortfolioDetail() {
   if (loading) {
     return (
       <div className="section-padding py-20 text-center">
-        <p className="text-muted-foreground">Loading project…</p>
+        <p className="text-muted-foreground">{t("portfolio.loading")}</p>
       </div>
     );
   }
@@ -31,9 +34,11 @@ export default function PortfolioDetail() {
     return (
       <div className="section-padding py-20 text-center">
         <h1 className="text-2xl font-semibold mb-4">
-          {error ? "Couldn’t load this project" : "Project Not Found"}
+          {error ? t("portfolio.loadError") : t("portfolio.notFound")}
         </h1>
-        <Link to="/projects" className="text-primary hover:underline">Back to Projects</Link>
+        <Link to={lp("/projects")} className="text-primary hover:underline">
+          {t("portfolio.back")}
+        </Link>
       </div>
     );
   }
@@ -42,7 +47,6 @@ export default function PortfolioDetail() {
 
   return (
     <>
-      {/* Hero */}
       <section className="relative h-[50vh] md:h-[60vh]">
         <img src={project.heroImage} alt={project.title} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
@@ -50,13 +54,12 @@ export default function PortfolioDetail() {
 
       <section ref={ref} className="section-padding py-16">
         <div className="max-w-5xl mx-auto">
-          <Link to="/projects" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-6 reveal-up">
-            <ArrowLeft className="h-4 w-4" /> Back to Projects
+          <Link to={lp("/projects")} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-6 reveal-up">
+            <ArrowLeft className="h-4 w-4" /> {t("portfolio.back")}
           </Link>
 
           <h1 className="text-3xl md:text-4xl font-semibold mb-6 reveal-up">{project.title}</h1>
 
-          {/* Info row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 reveal-up">
             {project.location && (
               <div className="flex items-center gap-2 text-sm">
@@ -82,7 +85,6 @@ export default function PortfolioDetail() {
             <p className="text-muted-foreground leading-relaxed mb-12 max-w-3xl reveal-up">{project.description}</p>
           )}
 
-          {/* Gallery */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal-up">
             {allImages.map((img, i) => (
               <button
