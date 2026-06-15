@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Quote } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
+import ProjectCard from "@/components/ProjectCard";
+import { useProjects } from "@/data/projects";
 import hero1 from "@/assets/hero/angus-dr_01.webp";
 import hero2 from "@/assets/hero/avery_03.webp";
 import hero3 from "@/assets/hero/ballatree-rd_feature.webp";
