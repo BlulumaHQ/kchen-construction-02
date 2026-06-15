@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kchen-construction-02.lovable.app/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/about"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/services"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/services"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/projects"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/projects"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/recognitions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/recognitions"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/recognitions"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/contact"/>
+  </url>
+
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/zh</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kchen-construction-02.lovable.app/"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/zh/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/about"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/zh/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/services"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/services"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/zh/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/projects"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/projects"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/zh/recognitions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/recognitions"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/recognitions"/>
+  </url>
+  <url>
+    <loc>https://kchen-construction-02.lovable.app/zh/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kchen-construction-02.lovable.app/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kchen-construction-02.lovable.app/zh/contact"/>
+  </url>
+</urlset>
