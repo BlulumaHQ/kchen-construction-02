@@ -97,11 +97,25 @@ export default function Index() {
   const ctaRef = useScrollReveal<HTMLElement>();
   const testimonialRef = useScrollReveal<HTMLElement>();
 
+  const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
+  const [slideIdx, setSlideIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSlideIdx((i) => (i + 1) % heroImages.length), 3000);
+    return () => clearInterval(id);
+  }, [heroImages.length]);
+
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center">
-        <img src={heroImage} alt="Modern construction project in Vancouver" className="absolute inset-0 h-full w-full object-cover" />
+      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
+        {heroImages.map((img, i) => (
+          <img
+            key={img.url}
+            src={img.url}
+            alt="K. Chen Construction project"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${i === slideIdx ? "opacity-100" : "opacity-0"}`}
+          />
+        ))}
         <div className="page-hero-overlay" />
         <div className="relative z-10 section-padding w-full">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 max-w-6xl mx-auto">
