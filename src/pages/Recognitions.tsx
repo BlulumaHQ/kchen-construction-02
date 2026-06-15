@@ -1,8 +1,8 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, Shield, Users, Star } from "lucide-react";
-import heroImage from "@/assets/hero/dunns-famous-bc_01.webp.asset.json";
-import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
+import heroImage from "@/assets/hero/dunns-famous-bc_01.webp";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
 import certGeorgie from "@/assets/cert-georgie-awards.png";
@@ -26,7 +26,7 @@ export default function Recognitions() {
   return (
     <>
       <section className="page-hero">
-        <img src={heroImage.url} alt={t("recog.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage} alt={t("recog.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">{t("recog.pageTitle")}</h1>
       </section>
@@ -55,7 +55,7 @@ export default function Recognitions() {
         ref={logoRef}
         className="section-padding py-20 bg-secondary"
         style={{
-          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
