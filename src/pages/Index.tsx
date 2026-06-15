@@ -111,6 +111,12 @@ export default function Index() {
     return () => clearInterval(id);
   }, [heroImages.length]);
 
+  const featuredProjects = useMemo(() => {
+    if (projects.length === 0) return [];
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  }, [projects]);
+
   return (
     <>
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
