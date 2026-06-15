@@ -119,7 +119,7 @@ export default function Index() {
         ))}
         <div className="page-hero-overlay" />
         <div className="relative z-10 section-padding w-full">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 max-w-6xl mx-auto pt-8 md:pt-0">
             <div className="flex-1 max-w-xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[hsl(var(--primary-foreground))] leading-tight">
                 {t("home.heroTitle1")}<br />{t("home.heroTitle2")}
