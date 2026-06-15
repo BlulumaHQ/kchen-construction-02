@@ -7,37 +7,34 @@ import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
 import certGeorgie from "@/assets/cert-georgie-awards.png";
 import cert2510 from "@/assets/cert-2-5-10-warranty.png";
-
-const highlights = [
-  { icon: Award, title: "Georgie Awards", desc: "Recognized by the Canadian Home Builders' Association of BC for outstanding achievement in residential construction." },
-  { icon: Shield, title: "2-5-10 Year Warranty", desc: "All projects are backed by comprehensive 2-5-10 year new home warranty coverage for complete homeowner peace of mind." },
-  { icon: Users, title: "GVHBA Member", desc: "Proud member of the Greater Vancouver Home Builders' Association, committed to industry best practices and standards." },
-  { icon: Star, title: "National Home Warranty", desc: "Registered with National Home Warranty providing additional protection and quality assurance for every project." },
-];
+import { useT } from "@/i18n";
 
 export default function Recognitions() {
-  usePageMeta({
-    title: "Recognitions | K. Chen Construction Management",
-    description: "Awards, certifications, and industry recognition earned by K. Chen Construction Management.",
-  });
+  const t = useT();
+  usePageMeta({ title: t("recog.metaTitle"), description: t("recog.metaDesc") });
 
   const ref = useScrollReveal<HTMLElement>();
   const logoRef = useScrollReveal<HTMLElement>();
 
+  const highlights = [
+    { icon: Award, title: t("recog.g.title"), desc: t("recog.g.desc") },
+    { icon: Shield, title: t("recog.w.title"), desc: t("recog.w.desc") },
+    { icon: Users, title: t("recog.a.title"), desc: t("recog.a.desc") },
+    { icon: Star, title: t("recog.n.title"), desc: t("recog.n.desc") },
+  ];
+
   return (
     <>
-      {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage.url} alt="Recognitions" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt={t("recog.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
-        <h1 className="page-hero-title">Recognitions</h1>
+        <h1 className="page-hero-title">{t("recog.pageTitle")}</h1>
       </section>
 
-      {/* Highlights */}
       <section ref={ref} className="section-padding py-20">
         <div className="max-w-5xl mx-auto">
-          <p className="section-heading reveal-up">AWARDS & CERTIFICATIONS</p>
-          <h2 className="section-title mb-12 reveal-up">Industry Recognized Excellence</h2>
+          <p className="section-heading reveal-up">{t("recog.kicker")}</p>
+          <h2 className="section-title mb-12 reveal-up">{t("recog.title")}</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {highlights.map((h, i) => (
               <div key={h.title} className="reveal-up flex gap-4" style={{ transitionDelay: `${i * 100}ms` }}>
@@ -54,7 +51,6 @@ export default function Recognitions() {
         </div>
       </section>
 
-      {/* Logo bar */}
       <section
         ref={logoRef}
         className="section-padding py-20 bg-secondary"

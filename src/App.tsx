@@ -15,6 +15,7 @@ import Recognitions from "./pages/Recognitions";
 import Contact from "./pages/Contact";
 import PortfolioDetail from "./pages/PortfolioDetail";
 import NotFound from "./pages/NotFound";
+import { LanguageProvider } from "@/i18n";
 
 const queryClient = new QueryClient();
 
@@ -24,22 +25,35 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Header />
-        <main className="min-h-screen">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/recognitions" element={<Recognitions />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-        <BackToTop />
+        <LanguageProvider>
+          <ScrollToTop />
+          <Header />
+          <main className="min-h-screen">
+            <Routes>
+              {/* English (default) */}
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/recognitions" element={<Recognitions />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+
+              {/* Traditional Chinese (Taiwan) — /zh prefix */}
+              <Route path="/zh" element={<Index />} />
+              <Route path="/zh/about" element={<About />} />
+              <Route path="/zh/services" element={<Services />} />
+              <Route path="/zh/projects" element={<Projects />} />
+              <Route path="/zh/recognitions" element={<Recognitions />} />
+              <Route path="/zh/contact" element={<Contact />} />
+              <Route path="/zh/portfolio/:slug" element={<PortfolioDetail />} />
+
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <BackToTop />
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
