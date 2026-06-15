@@ -67,7 +67,7 @@
   }
 
   .page-hero {
-    @apply relative w-full h-[27vh] md:h-[33vh] flex items-end overflow-hidden;
+    @apply relative w-full min-h-[220px] h-[32vh] md:h-[33vh] flex items-end overflow-hidden;
   }
 
   .page-hero-overlay {
