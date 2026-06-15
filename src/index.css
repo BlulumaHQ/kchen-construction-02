@@ -67,7 +67,7 @@
   }
 
   .page-hero {
-    @apply relative w-full h-[40vh] md:h-[50vh] flex items-end;
+    @apply relative w-full h-[27vh] md:h-[33vh] flex items-end overflow-hidden;
   }
 
   .page-hero-overlay {
@@ -75,7 +75,7 @@
   }
 
   .page-hero-title {
-    @apply relative z-10 text-[hsl(var(--primary-foreground))] text-4xl md:text-5xl font-semibold pb-12 section-padding;
+    @apply relative z-10 text-[hsl(var(--primary-foreground))] text-4xl md:text-5xl font-semibold pb-8 section-padding;
   }
 }
 

@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useProjects } from "@/data/projects";
 import ProjectFilter from "@/components/ProjectFilter";
 import ProjectCard from "@/components/ProjectCard";
-import heroImage from "@/assets/project-multifamily-1.jpg";
+import heroImage from "@/assets/hero/granville_feature.webp.asset.json";
 
 export default function Projects() {
   usePageMeta({
@@ -50,7 +50,7 @@ export default function Projects() {
     <>
       {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage} alt="Our Projects" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt="Our Projects" className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">Projects</h1>
       </section>

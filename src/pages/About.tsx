@@ -1,6 +1,8 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import heroImage from "@/assets/hero-home.jpg";
+import heroImage from "@/assets/hero/kuan-ti-temple_02.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/blueprint-floorplan.webp.asset.json";
+import kevinPhoto from "@/assets/people/kevin-chen.webp.asset.json";
 import logo from "@/assets/logo-full-color.svg";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
@@ -21,7 +23,7 @@ export default function About() {
     <>
       {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage} alt="About K. Chen Construction" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt="About K. Chen Construction" className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">About Us</h1>
       </section>
@@ -55,28 +57,45 @@ export default function About() {
       </section>
 
       {/* Kevin Chen */}
-      <section ref={kevinRef} className="section-padding py-16 bg-secondary">
-        <div className="max-w-3xl mx-auto">
-          <p className="section-heading reveal-up">OUR PEOPLE</p>
-          <h2 className="section-title mb-1 reveal-up">Kevin Chen</h2>
-          <p className="mb-6 text-sm font-medium text-primary reveal-up">P. Eng., GSC</p>
-          <div className="space-y-4 text-muted-foreground leading-relaxed reveal-up">
-            <p>
-              Kevin is the President of K. Chen Construction Management, and co-founder and partner of Formation
-              Project Management Inc. With over 15 years of career expertise in the construction industry, Kevin works
-              directly with clients and manages all trade partners at every stage of a project.
-            </p>
-            <p>
-              Prior to starting K. Chen Construction Management, Kevin was a Project Manager at a larger Canadian-based
-              international construction firm. He has served on construction projects of various scales, managed budgets
-              ranging from $250K to over $80 million, and worked on projects from Victoria and Whistler to every corner
-              of the Lower Mainland. Notable projects include the River Rock Casino Resort South Parkade in Richmond,
-              the Horseshoe Bay BC Ferries terminal and parkade, and various BMO branches across Greater Vancouver.
-            </p>
-            <p>
-              Kevin is a registered Professional Engineer and holds the Gold Seal Certification from the Canadian
-              Construction Association.
-            </p>
+      <section
+        ref={kevinRef}
+        className="section-padding py-20 bg-secondary"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.94), hsl(var(--secondary)/0.94)), url(${blueprintBg.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-5xl mx-auto grid md:grid-cols-[auto_1fr] gap-10 md:gap-14 items-start">
+          <div className="reveal-up flex-shrink-0 mx-auto md:mx-0">
+            <img
+              src={kevinPhoto.url}
+              alt="Kevin Chen, P. Eng., GSC"
+              className="w-56 md:w-64 aspect-square object-cover rounded-lg shadow-lg"
+            />
+          </div>
+          <div>
+            <p className="section-heading reveal-up">OUR PEOPLE</p>
+            <h2 className="section-title mb-1 reveal-up">Kevin Chen</h2>
+            <p className="mb-6 text-sm font-medium text-primary reveal-up">P. Eng., GSC</p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed reveal-up">
+              <p>
+                Kevin is the President of K. Chen Construction Management, and co-founder and partner of Formation
+                Project Management Inc. With over 15 years of career expertise in the construction industry, Kevin works
+                directly with clients and manages all trade partners at every stage of a project.
+              </p>
+              <p>
+                Prior to starting K. Chen Construction Management, Kevin was a Project Manager at a larger Canadian-based
+                international construction firm. He has served on construction projects of various scales, managed budgets
+                ranging from $250K to over $80 million, and worked on projects from Victoria and Whistler to every corner
+                of the Lower Mainland. Notable projects include the River Rock Casino Resort South Parkade in Richmond,
+                the Horseshoe Bay BC Ferries terminal and parkade, and various BMO branches across Greater Vancouver.
+              </p>
+              <p>
+                Kevin is a registered Professional Engineer and holds the Gold Seal Certification from the Canadian
+                Construction Association.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -86,11 +105,11 @@ export default function About() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="section-heading reveal-up">CERTIFICATIONS & MEMBERSHIPS</p>
           <h2 className="section-title mb-10 reveal-up">Industry Recognized</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center reveal-up">
-            <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-24 w-auto object-contain" />
-            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-24 w-auto object-contain" />
-            <img src={certGVHBA} alt="Greater Vancouver Home Builders' Association Member" className="mx-auto h-24 w-auto object-contain" />
-            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-24 w-auto object-contain" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
+            <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certGVHBA} alt="Greater Vancouver Home Builders' Association Member" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-28 md:h-36 w-auto object-contain" />
           </div>
         </div>
       </section>
