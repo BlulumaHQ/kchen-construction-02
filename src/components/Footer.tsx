@@ -18,9 +18,9 @@ export default function Footer() {
   return (
     <footer className="bg-footer text-footer-foreground">
       <div className="section-padding py-10 md:py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_1fr_auto_auto] md:gap-0">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1fr_auto_auto] md:gap-0">
           <div className="flex items-start">
-            <img src={footerLogo} alt="K. Chen Construction Management" className="h-20 w-auto" />
+            <img src={footerLogo} alt="K. Chen Construction Management" className="h-14 w-auto md:h-20" />
           </div>
 
           <div className="hidden md:block" aria-hidden="true" />
@@ -29,7 +29,7 @@ export default function Footer() {
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
               {t("footer.nav")}
             </h4>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-1 md:block md:space-y-2">
               {navLinks.map((l) => (
                 <li key={l.to}>
                   <Link to={lp(l.to)} className="text-sm text-footer-foreground/80 transition-colors hover:text-primary">
