@@ -1,3 +1,5 @@
+import { useT } from "@/i18n";
+
 interface Props {
   categories: string[];
   services: string[];
@@ -19,14 +21,20 @@ export default function ProjectFilter({
   onClear,
   resultCount,
 }: Props) {
+  const t = useT();
   const hasFilters = selectedCategory !== null || selectedServices.length > 0;
+  const countLabel =
+    resultCount === 1
+      ? t("projects.countOne")
+      : t("projects.countMany").replace("{n}", String(resultCount));
 
   return (
     <div className="mb-10 space-y-4">
-      {/* Project Type */}
       {categories.length > 0 && (
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Project Type</label>
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            {t("projects.projectType")}
+          </label>
           <div className="mt-2 flex flex-wrap gap-2">
             {categories.map((c) => (
               <button
@@ -45,10 +53,11 @@ export default function ProjectFilter({
         </div>
       )}
 
-      {/* Service Type */}
       {services.length > 0 && (
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Service Type</label>
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            {t("projects.serviceType")}
+          </label>
           <div className="mt-2 flex flex-wrap gap-2">
             {services.map((s) => (
               <button
@@ -67,14 +76,11 @@ export default function ProjectFilter({
         </div>
       )}
 
-      {/* Counter & Clear */}
       <div className="flex items-center justify-between pt-2">
-        <span className="text-sm text-muted-foreground">
-          {resultCount} project{resultCount !== 1 ? "s" : ""}
-        </span>
+        <span className="text-sm text-muted-foreground">{countLabel}</span>
         {hasFilters && (
           <button onClick={onClear} className="text-xs font-medium text-primary hover:underline">
-            Clear Filters
+            {t("projects.clear")}
           </button>
         )}
       </div>
