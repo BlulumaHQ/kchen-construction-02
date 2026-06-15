@@ -18,6 +18,7 @@ import cert2510 from "@/assets/cert-2-5-10-warranty.png";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
 import certGeorgie from "@/assets/cert-georgie-awards.png";
+import blueprintBg from "@/assets/backgrounds/blueprint-street.webp.asset.json";
 import { toast } from "sonner";
 
 function HeroContactForm() {
@@ -35,15 +36,15 @@ function HeroContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-card/95 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-xl space-y-4 w-full max-w-md">
-      <h3 className="text-lg font-semibold text-card-foreground">Get a Free Consultation</h3>
+    <form onSubmit={handleSubmit} className="bg-card/55 backdrop-blur-md rounded-lg p-6 md:p-8 shadow-xl ring-1 ring-white/20 space-y-4 w-full max-w-md">
+      <h3 className="text-lg font-semibold text-white drop-shadow">Get a Free Consultation</h3>
       <input
         type="text"
         placeholder="Full Name"
         required
         value={form.name}
         onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       />
       <input
         type="email"
@@ -51,14 +52,14 @@ function HeroContactForm() {
         required
         value={form.email}
         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       />
       <input
         type="tel"
         placeholder="Phone Number"
         value={form.phone}
         onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       />
       <textarea
         placeholder="Tell us about your project..."

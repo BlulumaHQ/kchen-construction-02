@@ -1,7 +1,8 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, Shield, Users, Star } from "lucide-react";
-import heroImage from "@/assets/project-residential-1.jpg";
+import heroImage from "@/assets/hero/dunns-famous-bc_01.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/blueprint-street.webp.asset.json";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
 import certGeorgie from "@/assets/cert-georgie-awards.png";
@@ -27,7 +28,7 @@ export default function Recognitions() {
     <>
       {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage} alt="Recognitions" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt="Recognitions" className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">Recognitions</h1>
       </section>
@@ -54,13 +55,21 @@ export default function Recognitions() {
       </section>
 
       {/* Logo bar */}
-      <section ref={logoRef} className="section-padding py-16 bg-secondary">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center reveal-up">
-            <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-20 w-auto object-contain" />
-            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-20 w-auto object-contain" />
-            <img src={certGVHBA} alt="GVHBA Member" className="mx-auto h-20 w-auto object-contain" />
-            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-20 w-auto object-contain" />
+      <section
+        ref={logoRef}
+        className="section-padding py-20 bg-secondary"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.93), hsl(var(--secondary)/0.93)), url(${blueprintBg.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
+            <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certGVHBA} alt="GVHBA Member" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-28 md:h-36 w-auto object-contain" />
           </div>
         </div>
       </section>

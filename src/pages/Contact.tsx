@@ -100,14 +100,14 @@ export default function Contact() {
                 <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div className="text-sm text-muted-foreground">
                   <p className="font-medium text-foreground">Email</p>
-                  <a href="mailto:info@kchencm.com" className="hover:text-primary transition-colors">info@kchencm.com</a>
+                  <a href="mailto:kchen@kchencm.com" className="hover:text-primary transition-colors">kchen@kchencm.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div className="text-sm text-muted-foreground">
                   <p className="font-medium text-foreground">Phone</p>
-                  <a href="tel:+16045551234" className="hover:text-primary transition-colors">(604) 555-1234</a>
+                  <a href="tel:+16046182449" className="hover:text-primary transition-colors">(604) 618-2449</a>
                 </div>
               </div>
             </div>

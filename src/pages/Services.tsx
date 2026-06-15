@@ -1,7 +1,8 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, Home, HardHat, ClipboardList, PenTool } from "lucide-react";
-import heroImage from "@/assets/project-commercial-1.jpg";
+import heroImage from "@/assets/hero/t-go-tea_06.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/blueprint-floorplan.webp.asset.json";
 
 const services = [
   {
@@ -52,7 +53,7 @@ export default function Services() {
     <>
       {/* Hero */}
       <section className="page-hero">
-        <img src={heroImage} alt="Our Services" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage.url} alt="Our Services" className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">Services</h1>
       </section>
@@ -82,7 +83,15 @@ export default function Services() {
       </section>
 
       {/* Residential / Commercial */}
-      <section ref={typeRef} className="section-padding py-20 bg-secondary">
+      <section
+        ref={typeRef}
+        className="section-padding py-20 bg-secondary relative"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.92), hsl(var(--secondary)/0.92)), url(${blueprintBg.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="max-w-6xl mx-auto">
           <p className="section-heading reveal-up">WHO WE BUILD FOR</p>
           <h2 className="section-title mb-12 reveal-up">Residential &amp; Commercial</h2>
