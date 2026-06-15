@@ -72,6 +72,9 @@ export const dict = {
       zh: "Kevin 跟團隊把我們家的工程做得非常細緻、又很專業。整個流程公開透明，準時完工，成果完全超出我們預期。",
     },
     testimonialBy: { en: "— Homeowner, Shaughnessy", zh: "— Shaughnessy 屋主" },
+    featuredKicker: { en: "FEATURED PROJECTS", zh: "精選工程" },
+    featuredTitle: { en: "Recent Projects", zh: "近期工程實績" },
+    featuredBtn: { en: "View All Projects", zh: "查看全部工程" },
     ctaTitle: { en: "Ready to Start Your Project?", zh: "準備好開始您的工程了嗎？" },
     ctaBody: {
       en: "Let's discuss your vision. We'd love to hear about your next project.",
