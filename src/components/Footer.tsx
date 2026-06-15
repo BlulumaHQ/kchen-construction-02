@@ -15,9 +15,9 @@ export default function Footer() {
     <footer className="bg-footer text-footer-foreground">
       <div className="section-padding py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_1fr_auto_auto] md:gap-0">
-          {/* Column A: Logo */}
+          {/* Column A: Logo (enlarged) */}
           <div className="flex items-start">
-            <img src={footerLogo} alt="K. Chen Construction Management" className="h-14 w-auto" />
+            <img src={footerLogo} alt="K. Chen Construction Management" className="h-20 w-auto" />
           </div>
 
           {/* Column B: Spacer – hidden on mobile */}
@@ -39,7 +39,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column D: Contact */}
+          {/* Column D: Contact (corrected to client's real details) */}
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
               Contact
@@ -47,13 +47,13 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-footer-foreground/80">
               <li>Vancouver, BC</li>
               <li>
-                <a href="mailto:info@kchencm.com" className="transition-colors hover:text-primary">
-                  info@kchencm.com
+                <a href="mailto:kchen@kchencm.com" className="transition-colors hover:text-primary">
+                  kchen@kchencm.com
                 </a>
               </li>
               <li>
-                <a href="tel:+16045551234" className="transition-colors hover:text-primary">
-                  (604) 555-1234
+                <a href="tel:+16046182449" className="transition-colors hover:text-primary">
+                  (604) 618-2449
                 </a>
               </li>
             </ul>

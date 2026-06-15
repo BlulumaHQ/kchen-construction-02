@@ -5,6 +5,10 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
 import heroImage from "@/assets/hero-home.jpg";
+import cert2510 from "@/assets/cert-2-5-10-warranty.png";
+import certNHW from "@/assets/cert-national-home-warranty.png";
+import certGVHBA from "@/assets/cert-gvhba-member.png";
+import certGeorgie from "@/assets/cert-georgie-awards.png";
 import { toast } from "sonner";
 
 function HeroContactForm() {
@@ -66,6 +70,13 @@ function HeroContactForm() {
   );
 }
 
+const certs = [
+  { src: cert2510, alt: "2-5-10 Year Warranty" },
+  { src: certNHW, alt: "National Home Warranty" },
+  { src: certGVHBA, alt: "Greater Vancouver Home Builders' Association Member" },
+  { src: certGeorgie, alt: "Georgie Awards" },
+];
+
 export default function Index() {
   usePageMeta({
     title: "K. Chen Construction Management | Vancouver",
@@ -73,6 +84,7 @@ export default function Index() {
   });
 
   const introRef = useScrollReveal<HTMLElement>();
+  const certRef = useScrollReveal<HTMLElement>();
   const ctaRef = useScrollReveal<HTMLElement>();
   const testimonialRef = useScrollReveal<HTMLElement>();
 
@@ -119,6 +131,18 @@ export default function Index() {
             With over two decades of experience in residential, commercial, and institutional projects, we bring a meticulous
             approach to every build — from initial consultation through final handover.
           </p>
+        </div>
+      </section>
+
+      {/* Certifications — compact trust band */}
+      <section ref={certRef} className="section-padding py-12 border-y border-border bg-secondary/40">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="section-heading reveal-up">CERTIFICATIONS & MEMBERSHIPS</p>
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-8 items-center reveal-up">
+            {certs.map((c) => (
+              <img key={c.alt} src={c.src} alt={c.alt} className="mx-auto h-16 w-auto object-contain md:h-20" />
+            ))}
+          </div>
         </div>
       </section>
 

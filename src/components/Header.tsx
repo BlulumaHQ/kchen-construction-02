@@ -18,9 +18,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="section-padding flex h-16 items-center justify-between md:h-20">
+      <div className="section-padding flex h-20 items-center justify-between md:h-24">
         <Link to="/" className="shrink-0" aria-label="K. Chen Construction Management Home">
-          <img src={logo} alt="K. Chen Construction Management" className="h-10 w-auto md:h-12" />
+          {/* Logo enlarged */}
+          <img src={logo} alt="K. Chen Construction Management" className="h-12 w-auto md:h-16" />
         </Link>
 
         {/* Desktop nav */}
