@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useProjects, type ProjectCategory, type ServiceType } from "@/data/projects";
+import { useProjects } from "@/data/projects";
 import ProjectFilter from "@/components/ProjectFilter";
 import ProjectCard from "@/components/ProjectCard";
 import heroImage from "@/assets/project-multifamily-1.jpg";
@@ -13,8 +13,19 @@ export default function Projects() {
   });
 
   const { projects, loading, error } = useProjects();
-  const [category, setCategory] = useState<ProjectCategory | null>(null);
-  const [selectedServices, setSelectedServices] = useState<ServiceType[]>([]);
+  const [category, setCategory] = useState<string | null>(null);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+
+  // Filter options are derived from the data — whatever categories/services
+  // exist in the CMS show up here automatically.
+  const categories = useMemo(
+    () => Array.from(new Set(projects.map((p) => p.category).filter(Boolean))).sort(),
+    [projects],
+  );
+  const services = useMemo(
+    () => Array.from(new Set(projects.flatMap((p) => p.serviceTypes).filter(Boolean))).sort(),
+    [projects],
+  );
 
   const filtered = useMemo(() => {
     return projects.filter((p) => {
@@ -24,7 +35,7 @@ export default function Projects() {
     });
   }, [projects, category, selectedServices]);
 
-  const toggleService = (s: ServiceType) => {
+  const toggleService = (s: string) => {
     setSelectedServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
   };
 
@@ -47,6 +58,8 @@ export default function Projects() {
       <section className="section-padding py-16">
         <div className="max-w-6xl mx-auto">
           <ProjectFilter
+            categories={categories}
+            services={services}
             selectedCategory={category}
             selectedServices={selectedServices}
             onCategoryChange={setCategory}
@@ -55,9 +68,7 @@ export default function Projects() {
             resultCount={filtered.length}
           />
 
-          {loading && (
-            <p className="text-center text-muted-foreground py-12">Loading projects…</p>
-          )}
+          {loading && <p className="text-center text-muted-foreground py-12">Loading projects…</p>}
 
           {error && !loading && (
             <p className="text-center text-destructive py-12">Couldn’t load projects. Please try again later.</p>
