@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Quote } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
+import ProjectCard from "@/components/ProjectCard";
+import { useProjects } from "@/data/projects";
 import hero1 from "@/assets/hero/angus-dr_01.webp";
 import hero2 from "@/assets/hero/avery_03.webp";
 import hero3 from "@/assets/hero/ballatree-rd_feature.webp";
@@ -94,10 +96,13 @@ export default function Index() {
   const lp = useLocalePath();
   usePageMeta({ title: t("home.metaTitle"), description: t("home.metaDesc") });
 
+  const { projects, loading } = useProjects();
+
   const introRef = useScrollReveal<HTMLElement>();
   const certRef = useScrollReveal<HTMLElement>();
   const ctaRef = useScrollReveal<HTMLElement>();
   const testimonialRef = useScrollReveal<HTMLElement>();
+  const featuredRef = useScrollReveal<HTMLElement>();
 
   const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
   const [slideIdx, setSlideIdx] = useState(0);
@@ -105,6 +110,12 @@ export default function Index() {
     const id = setInterval(() => setSlideIdx((i) => (i + 1) % heroImages.length), 3000);
     return () => clearInterval(id);
   }, [heroImages.length]);
+
+  const featuredProjects = useMemo(() => {
+    if (projects.length === 0) return [];
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  }, [projects]);
 
   return (
     <>
@@ -169,6 +180,32 @@ export default function Index() {
       </section>
 
       <HowWeWork />
+
+      <section ref={featuredRef} className="section-padding py-20 border-y border-border">
+        <div className="max-w-6xl mx-auto">
+          <p className="section-heading reveal-up text-center">{t("home.featuredKicker")}</p>
+          <h2 className="section-title reveal-up text-center mb-10">{t("home.featuredTitle")}</h2>
+
+          {loading ? (
+            <p className="text-center text-muted-foreground py-12">{t("projects.loading")}</p>
+          ) : featuredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredProjects.map((p, i) => (
+                <ProjectCard key={p.slug} project={p} index={i} />
+              ))}
+            </div>
+          ) : null}
+
+          <div className="mt-10 text-center reveal-up">
+            <Link
+              to={lp("/projects")}
+              className="inline-flex items-center gap-2 rounded border border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              {t("home.featuredBtn")} <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section ref={testimonialRef} className="section-padding py-20">
         <div className="max-w-3xl mx-auto text-center">
