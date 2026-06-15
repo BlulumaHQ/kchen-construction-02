@@ -2,7 +2,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, Home, HardHat, ClipboardList, PenTool } from "lucide-react";
 import heroImage from "@/assets/hero/t-go-tea_06.webp.asset.json";
-import blueprintBg from "@/assets/backgrounds/blueprint-floorplan.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
 
 const services = [
   {
@@ -87,7 +87,7 @@ export default function Services() {
         ref={typeRef}
         className="section-padding py-20 bg-secondary relative"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.92), hsl(var(--secondary)/0.92)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
