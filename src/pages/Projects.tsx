@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { projects, type ProjectCategory, type ServiceType } from "@/data/projects";
+import { useProjects, type ProjectCategory, type ServiceType } from "@/data/projects";
 import ProjectFilter from "@/components/ProjectFilter";
 import ProjectCard from "@/components/ProjectCard";
 import heroImage from "@/assets/project-multifamily-1.jpg";
@@ -12,6 +12,7 @@ export default function Projects() {
     description: "Explore our portfolio of residential and commercial construction projects across Greater Vancouver.",
   });
 
+  const { projects, loading, error } = useProjects();
   const [category, setCategory] = useState<ProjectCategory | null>(null);
   const [selectedServices, setSelectedServices] = useState<ServiceType[]>([]);
 
@@ -21,7 +22,7 @@ export default function Projects() {
       if (selectedServices.length > 0 && !selectedServices.some((s) => p.serviceTypes.includes(s))) return false;
       return true;
     });
-  }, [category, selectedServices]);
+  }, [projects, category, selectedServices]);
 
   const toggleService = (s: ServiceType) => {
     setSelectedServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
@@ -54,13 +55,23 @@ export default function Projects() {
             resultCount={filtered.length}
           />
 
-          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" key={`${category}-${selectedServices.join()}`}>
-            {filtered.map((p, i) => (
-              <ProjectCard key={p.slug} project={p} index={i} />
-            ))}
-          </div>
+          {loading && (
+            <p className="text-center text-muted-foreground py-12">Loading projects…</p>
+          )}
 
-          {filtered.length === 0 && (
+          {error && !loading && (
+            <p className="text-center text-destructive py-12">Couldn’t load projects. Please try again later.</p>
+          )}
+
+          {!loading && !error && (
+            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" key={`${category}-${selectedServices.join()}`}>
+              {filtered.map((p, i) => (
+                <ProjectCard key={p.slug} project={p} index={i} />
+              ))}
+            </div>
+          )}
+
+          {!loading && !error && filtered.length === 0 && (
             <p className="text-center text-muted-foreground py-12">No projects match the selected filters.</p>
           )}
         </div>
