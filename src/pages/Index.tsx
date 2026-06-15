@@ -18,7 +18,7 @@ import cert2510 from "@/assets/cert-2-5-10-warranty.png";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
 import certGeorgie from "@/assets/cert-georgie-awards.png";
-import blueprintBg from "@/assets/backgrounds/blueprint-street.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
 import { toast } from "sonner";
 
 function HeroContactForm() {
@@ -36,7 +36,7 @@ function HeroContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-card/55 backdrop-blur-md rounded-lg p-6 md:p-8 shadow-xl ring-1 ring-white/20 space-y-4 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="bg-card/35 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-xl ring-1 ring-white/20 space-y-4 w-full max-w-md">
       <h3 className="text-lg font-semibold text-white drop-shadow">Get a Free Consultation</h3>
       <input
         type="text"
@@ -44,7 +44,7 @@ function HeroContactForm() {
         required
         value={form.name}
         onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full rounded border border-white/30 bg-white/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       />
       <input
         type="email"
@@ -52,14 +52,14 @@ function HeroContactForm() {
         required
         value={form.email}
         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full rounded border border-white/30 bg-white/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       />
       <input
         type="tel"
         placeholder="Phone Number"
         value={form.phone}
         onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+        className="w-full rounded border border-white/30 bg-white/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
       />
       <textarea
         placeholder="Tell us about your project..."
@@ -67,7 +67,7 @@ function HeroContactForm() {
         required
         value={form.message}
         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+        className="w-full rounded border border-white/30 bg-white/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
       />
       <button
         type="submit"
@@ -163,7 +163,7 @@ export default function Index() {
         ref={certRef}
         className="section-padding py-16 border-y border-border"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.9), hsl(var(--secondary)/0.9)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

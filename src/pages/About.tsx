@@ -1,7 +1,7 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import heroImage from "@/assets/hero/kuan-ti-temple_02.webp.asset.json";
-import blueprintBg from "@/assets/backgrounds/blueprint-floorplan.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
 import kevinPhoto from "@/assets/people/kevin-chen.webp.asset.json";
 import logo from "@/assets/logo-full-color.svg";
 import certNHW from "@/assets/cert-national-home-warranty.png";
@@ -61,7 +61,7 @@ export default function About() {
         ref={kevinRef}
         className="section-padding py-20 bg-secondary"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.94), hsl(var(--secondary)/0.94)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
