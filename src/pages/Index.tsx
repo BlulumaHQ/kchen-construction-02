@@ -181,6 +181,32 @@ export default function Index() {
 
       <HowWeWork />
 
+      <section ref={featuredRef} className="section-padding py-20 border-y border-border">
+        <div className="max-w-6xl mx-auto">
+          <p className="section-heading reveal-up text-center">{t("home.featuredKicker")}</p>
+          <h2 className="section-title reveal-up text-center mb-10">{t("home.featuredTitle")}</h2>
+
+          {loading ? (
+            <p className="text-center text-muted-foreground py-12">{t("projects.loading")}</p>
+          ) : featuredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredProjects.map((p, i) => (
+                <ProjectCard key={p.slug} project={p} index={i} />
+              ))}
+            </div>
+          ) : null}
+
+          <div className="mt-10 text-center reveal-up">
+            <Link
+              to={lp("/projects")}
+              className="inline-flex items-center gap-2 rounded border border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              {t("home.featuredBtn")} <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section ref={testimonialRef} className="section-padding py-20">
         <div className="max-w-3xl mx-auto text-center">
           <Quote className="mx-auto h-8 w-8 text-primary/30 mb-6 reveal-up" />
