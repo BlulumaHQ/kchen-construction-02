@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useProjects } from "@/data/projects";
 import ProjectFilter from "@/components/ProjectFilter";
 import ProjectCard from "@/components/ProjectCard";
-import heroImage from "@/assets/hero/granville_feature.webp.asset.json";
+import heroImage from "@/assets/hero/granville_feature.webp";
 import { useT } from "@/i18n";
 
 export default function Projects() {
@@ -46,7 +46,7 @@ export default function Projects() {
   return (
     <>
       <section className="page-hero">
-        <img src={heroImage.url} alt={t("projects.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage} alt={t("projects.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">{t("projects.pageTitle")}</h1>
       </section>

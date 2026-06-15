@@ -1,8 +1,8 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, Home, HardHat, ClipboardList, PenTool } from "lucide-react";
-import heroImage from "@/assets/hero/t-go-tea_06.webp.asset.json";
-import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
+import heroImage from "@/assets/hero/t-go-tea_06.webp";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
 import { useT } from "@/i18n";
 
 export default function Services() {
@@ -26,7 +26,7 @@ export default function Services() {
   return (
     <>
       <section className="page-hero">
-        <img src={heroImage.url} alt={t("services.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage} alt={t("services.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">{t("services.pageTitle")}</h1>
       </section>
@@ -58,7 +58,7 @@ export default function Services() {
         ref={typeRef}
         className="section-padding py-20 bg-secondary relative"
         style={{
-          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

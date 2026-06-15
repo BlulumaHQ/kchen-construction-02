@@ -4,21 +4,21 @@ import { ArrowRight, Quote } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
-import hero1 from "@/assets/hero/angus-dr_01.webp.asset.json";
-import hero2 from "@/assets/hero/avery_03.webp.asset.json";
-import hero3 from "@/assets/hero/ballatree-rd_feature.webp.asset.json";
-import hero4 from "@/assets/hero/dunns-famous-bc_01.webp.asset.json";
-import hero5 from "@/assets/hero/granville_feature.webp.asset.json";
-import hero6 from "@/assets/hero/kuan-ti-temple_02.webp.asset.json";
-import hero7 from "@/assets/hero/madsen_03.webp.asset.json";
-import hero8 from "@/assets/hero/no2-rd_03.webp.asset.json";
-import hero9 from "@/assets/hero/sukis-salon_06.webp.asset.json";
-import hero10 from "@/assets/hero/t-go-tea_06.webp.asset.json";
+import hero1 from "@/assets/hero/angus-dr_01.webp";
+import hero2 from "@/assets/hero/avery_03.webp";
+import hero3 from "@/assets/hero/ballatree-rd_feature.webp";
+import hero4 from "@/assets/hero/dunns-famous-bc_01.webp";
+import hero5 from "@/assets/hero/granville_feature.webp";
+import hero6 from "@/assets/hero/kuan-ti-temple_02.webp";
+import hero7 from "@/assets/hero/madsen_03.webp";
+import hero8 from "@/assets/hero/no2-rd_03.webp";
+import hero9 from "@/assets/hero/sukis-salon_06.webp";
+import hero10 from "@/assets/hero/t-go-tea_06.webp";
 import cert2510 from "@/assets/cert-2-5-10-warranty.png";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
 import certGeorgie from "@/assets/cert-georgie-awards.png";
-import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
 import { toast } from "sonner";
 import { useT, useLocalePath } from "@/i18n";
 
@@ -111,8 +111,8 @@ export default function Index() {
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
         {heroImages.map((img, i) => (
           <img
-            key={img.url}
-            src={img.url}
+            key={img}
+            src={img}
             alt="K. Chen Construction project"
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${i === slideIdx ? "opacity-100" : "opacity-0"}`}
           />
@@ -153,7 +153,7 @@ export default function Index() {
         ref={certRef}
         className="section-padding py-16 border-y border-border"
         style={{
-          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

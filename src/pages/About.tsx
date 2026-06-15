@@ -1,8 +1,8 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import heroImage from "@/assets/hero/kuan-ti-temple_02.webp.asset.json";
-import blueprintBg from "@/assets/backgrounds/kchen-background.webp.asset.json";
-import kevinPhoto from "@/assets/people/kevin-chen.webp.asset.json";
+import heroImage from "@/assets/hero/kuan-ti-temple_02.webp";
+import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
+import kevinPhoto from "@/assets/people/kevin-chen.webp";
 import logo from "@/assets/logo-full-color.svg";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
@@ -21,7 +21,7 @@ export default function About() {
   return (
     <>
       <section className="page-hero">
-        <img src={heroImage.url} alt={t("about.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage} alt={t("about.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
         <div className="page-hero-overlay" />
         <h1 className="page-hero-title">{t("about.pageTitle")}</h1>
       </section>
@@ -46,7 +46,7 @@ export default function About() {
         ref={kevinRef}
         className="section-padding py-20 bg-secondary"
         style={{
-          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg.url})`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -54,7 +54,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto grid md:grid-cols-[auto_1fr] gap-10 md:gap-14 items-start">
           <div className="reveal-up flex-shrink-0 mx-auto md:mx-0">
             <img
-              src={kevinPhoto.url}
+              src={kevinPhoto}
               alt={t("about.kevinName")}
               className="w-56 md:w-64 aspect-square object-cover rounded-lg shadow-lg"
             />
