@@ -67,7 +67,7 @@ function HeroContactForm() {
         required
         value={form.message}
         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-        className="w-full rounded border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+        className="w-full rounded border border-white/30 bg-white/70 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
       />
       <button
         type="submit"
@@ -158,13 +158,21 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Certifications — compact trust band */}
-      <section ref={certRef} className="section-padding py-12 border-y border-border bg-secondary/40">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Certifications — trust band over blueprint backdrop */}
+      <section
+        ref={certRef}
+        className="section-padding py-16 border-y border-border"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--secondary)/0.9), hsl(var(--secondary)/0.9)), url(${blueprintBg.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-5xl mx-auto text-center">
           <p className="section-heading reveal-up">CERTIFICATIONS & MEMBERSHIPS</p>
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-8 items-center reveal-up">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
             {certs.map((c) => (
-              <img key={c.alt} src={c.src} alt={c.alt} className="mx-auto h-16 w-auto object-contain md:h-20" />
+              <img key={c.alt} src={c.src} alt={c.alt} className="mx-auto h-24 w-auto object-contain md:h-32" />
             ))}
           </div>
         </div>
