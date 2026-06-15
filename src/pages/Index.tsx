@@ -96,10 +96,13 @@ export default function Index() {
   const lp = useLocalePath();
   usePageMeta({ title: t("home.metaTitle"), description: t("home.metaDesc") });
 
+  const { projects, loading } = useProjects();
+
   const introRef = useScrollReveal<HTMLElement>();
   const certRef = useScrollReveal<HTMLElement>();
   const ctaRef = useScrollReveal<HTMLElement>();
   const testimonialRef = useScrollReveal<HTMLElement>();
+  const featuredRef = useScrollReveal<HTMLElement>();
 
   const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
   const [slideIdx, setSlideIdx] = useState(0);
