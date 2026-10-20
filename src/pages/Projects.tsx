@@ -25,7 +25,6 @@ export default function Projects() {
         mut(next);
         return next;
       },
-      { replace: true },
     );
   };
   const setCategory = (c: string | null) =>
@@ -67,7 +66,7 @@ export default function Projects() {
     });
   };
 
-  const clearFilters = () => setParams(new URLSearchParams(), { replace: true });
+  const clearFilters = () => setParams(new URLSearchParams());
 
   const gridRef = useScrollReveal<HTMLDivElement>();
 
@@ -109,7 +108,7 @@ export default function Projects() {
           )}
 
           {!loading && !error && filtered.length === 0 && (
-            <p className="text-center text-muted-foreground py-12">{t("projects.none")}</p>
+            <p className="text-center text-muted-foreground py-12">{subcategory ? t("projects.subEmpty") : t("projects.none")}</p>
           )}
         </div>
       </section>

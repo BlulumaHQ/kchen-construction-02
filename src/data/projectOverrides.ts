@@ -5,7 +5,8 @@
 export const MULTI_FAMILY = "Residential Multi-Family";
 export const COMMERCIAL = "Commercial";
 
-// Primary category corrections (replaces the CMS category).
+// TEMPORARY: client-confirmed corrections not yet made in the CMS.
+// Remove each entry once the CMS record is updated (see AGENTS.md).
 export const categoryOverrides: Record<string, string> = {
   "modern-city-boutique": MULTI_FAMILY,
   "the-otto": MULTI_FAMILY,
@@ -21,20 +22,7 @@ export const commercialSubcategories = [
 ] as const;
 export type CommercialSubcategory = (typeof commercialSubcategories)[number];
 
-// Which Commercial projects belong to which subcategory.
-// Projects not listed still appear under "Commercial" (all).
-export const subcategoryBySlug: Record<string, CommercialSubcategory> = {
-  "taoism-tian-jin-temple": "Institutional",
-  "dunns-famous-restaurant": "Food & Beverage",
-  "smokes-poutinerie-robson": "Food & Beverage",
-  "t-go-tea": "Food & Beverage",
-  "la-latoria": "Food & Beverage",
-  "viet-sub": "Food & Beverage",
-  "empress-lounge": "Food & Beverage",
-  "ridge-dental-clinic": "Medical",
-  "pharmasave": "Medical",
-  "agriculture-bank-of-china-abc": "Office",
-  "sukis-salon": "Lifestyle",
-  "party-world": "Lifestyle",
-  // Not yet assigned (needs client confirmation): chinatown-house, w-broadway, moon-light
-};
+// Commercial subcategory assignments. The CMS has no subcategory field yet,
+// and no assignments have been confirmed by the client, so this is empty.
+// Only add slugs here once confirmed, e.g. "ridge-dental-clinic": "Medical".
+export const subcategoryBySlug: Record<string, CommercialSubcategory> = {};

@@ -82,11 +82,10 @@ export default function ProjectFilter({
                       className="py-1 pl-3"
                       onClick={() => {
                         onCategoryChange(selectedCategory === c && !selectedSubcategory ? null : c);
-                        onSubcategoryChange(null);
                       }}
                     >
                       {c}
-                      {selectedSubcategory ? ` · ${selectedSubcategory}` : ""}
+                      {selectedSubcategory ? ` · ${t(`projects.sub_${selectedSubcategory}`)}` : ""}
                     </button>
                     <button
                       className="py-1 pr-2"
@@ -110,7 +109,6 @@ export default function ProjectFilter({
                           }`}
                           onClick={() => {
                             onCategoryChange(c);
-                            onSubcategoryChange(null);
                             setOpen(false);
                           }}
                         >
@@ -124,12 +122,11 @@ export default function ProjectFilter({
                               selectedSubcategory === s ? "text-primary font-medium" : ""
                             }`}
                             onClick={() => {
-                              onCategoryChange(c);
                               onSubcategoryChange(s);
                               setOpen(false);
                             }}
                           >
-                            {s}
+                            {t(`projects.sub_${s}`)}
                           </button>
                         </li>
                       ))}
@@ -141,7 +138,6 @@ export default function ProjectFilter({
                   key={c}
                   onClick={() => {
                     onCategoryChange(selectedCategory === c ? null : c);
-                    onSubcategoryChange(null);
                   }}
                   className={pill(selectedCategory === c)}
                 >
