@@ -1,0 +1,1 @@
+- Project category corrections and Commercial subcategories live in src/data/projectOverrides.ts, layered over CMS data — the CMS is read-only from this site.
