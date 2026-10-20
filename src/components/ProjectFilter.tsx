@@ -92,7 +92,7 @@ export default function ProjectFilter({
                       className="py-1 pr-2"
                       aria-label={t("projects.subcategories")}
                       aria-expanded={open}
-                      onClick={() => setOpen((o) => !o)}
+                      onClick={() => setOpen((o) => (window.matchMedia("(hover: hover)").matches ? true : !o))}
                     >
                       <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
                     </button>
