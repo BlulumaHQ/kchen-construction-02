@@ -19,9 +19,14 @@ export default function Projects() {
   const selectedServices = params.getAll("service");
 
   const update = (mut: (p: URLSearchParams) => void) => {
-    const next = new URLSearchParams(params);
-    mut(next);
-    setParams(next, { replace: true });
+    setParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        mut(next);
+        return next;
+      },
+      { replace: true },
+    );
   };
   const setCategory = (c: string | null) => update((p) => (c ? p.set("type", c) : p.delete("type")));
   const setSubcategory = (s: string | null) => update((p) => (s ? p.set("sub", s) : p.delete("sub")));
@@ -70,6 +75,8 @@ export default function Projects() {
             categories={categories}
             services={services}
             selectedCategory={category}
+            selectedSubcategory={subcategory}
+            onSubcategoryChange={setSubcategory}
             selectedServices={selectedServices}
             onCategoryChange={setCategory}
             onServiceToggle={toggleService}
@@ -84,7 +91,7 @@ export default function Projects() {
           )}
 
           {!loading && !error && (
-            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" key={`${category}-${selectedServices.join()}`}>
+            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" key={`${category}-${subcategory}-${selectedServices.join()}`}>
               {filtered.map((p, i) => (
                 <ProjectCard key={p.slug} project={p} index={i} />
               ))}
