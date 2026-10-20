@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { categoryOverrides, subcategoryBySlug } from "@/data/projectOverrides";
 
 // Categories/services are free text coming from the CMS now, so these are
 // just string aliases — kept so existing components compile unchanged.
@@ -11,6 +12,7 @@ export interface Project {
   title: string;
   location: string;
   category: ProjectCategory;
+  subcategory?: string;
   serviceTypes: ServiceType[];
   role: string;
   description: string;
@@ -47,11 +49,13 @@ function mapToProjects(items: any[]): Project[] {
     const cats = (it.content_categories ?? [])
       .map((c: any) => c?.categories?.name)
       .filter(Boolean);
+    const category = categoryOverrides[it.slug] ?? cats[0] ?? "";
     return {
       slug: it.slug,
       title: it.title,
       location: details?.location ?? "",
-      category: cats[0] ?? "",
+      category,
+      subcategory: category === "Commercial" ? subcategoryBySlug[it.slug] : undefined,
       serviceTypes: (details?.services ?? []) as string[],
       role: details?.role ?? "",
       description: it.excerpt ?? details?.short_summary ?? "",
