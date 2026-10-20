@@ -1,1 +1,1 @@
-- Project category corrections and Commercial subcategories live in src/data/projectOverrides.ts, layered over CMS data — the CMS is read-only from this site.
+- Project data comes from the Bluluma CMS (read-only anon client). src/data/projectOverrides.ts holds only temporary, client-confirmed corrections pending CMS edits plus confirmed subcategory assignments — never guessed classifications.
