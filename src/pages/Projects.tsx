@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useProjects } from "@/data/projects";
@@ -12,8 +13,18 @@ export default function Projects() {
   usePageMeta({ title: t("projects.metaTitle"), description: t("projects.metaDesc") });
 
   const { projects, loading, error } = useProjects();
-  const [category, setCategory] = useState<string | null>(null);
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [params, setParams] = useSearchParams();
+  const category = params.get("type");
+  const subcategory = params.get("sub");
+  const selectedServices = params.getAll("service");
+
+  const update = (mut: (p: URLSearchParams) => void) => {
+    const next = new URLSearchParams(params);
+    mut(next);
+    setParams(next, { replace: true });
+  };
+  const setCategory = (c: string | null) => update((p) => (c ? p.set("type", c) : p.delete("type")));
+  const setSubcategory = (s: string | null) => update((p) => (s ? p.set("sub", s) : p.delete("sub")));
 
   const categories = useMemo(
     () => Array.from(new Set(projects.map((p) => p.category).filter(Boolean))).sort(),
@@ -27,19 +38,21 @@ export default function Projects() {
   const filtered = useMemo(() => {
     return projects.filter((p) => {
       if (category && p.category !== category) return false;
+      if (subcategory && p.subcategory !== subcategory) return false;
       if (selectedServices.length > 0 && !selectedServices.some((s) => p.serviceTypes.includes(s))) return false;
       return true;
     });
-  }, [projects, category, selectedServices]);
+  }, [projects, category, subcategory, selectedServices.join("|")]);
 
   const toggleService = (s: string) => {
-    setSelectedServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+    const cur = selectedServices.includes(s) ? selectedServices.filter((x) => x !== s) : [...selectedServices, s];
+    update((p) => {
+      p.delete("service");
+      cur.forEach((x) => p.append("service", x));
+    });
   };
 
-  const clearFilters = () => {
-    setCategory(null);
-    setSelectedServices([]);
-  };
+  const clearFilters = () => setParams(new URLSearchParams(), { replace: true });
 
   const gridRef = useScrollReveal<HTMLDivElement>();
 
