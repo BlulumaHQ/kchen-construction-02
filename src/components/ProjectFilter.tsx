@@ -86,7 +86,7 @@ export default function ProjectFilter({
                       }}
                     >
                       {c}
-                      {selectedSubcategory ? ` · ${selectedSubcategory}` : ""}
+                      {selectedSubcategory ? ` · ${t(`projects.sub_${selectedSubcategory}`)}` : ""}
                     </button>
                     <button
                       className="py-1 pr-2"
@@ -129,7 +129,7 @@ export default function ProjectFilter({
                               setOpen(false);
                             }}
                           >
-                            {s}
+                            {t(`projects.sub_${s}`)}
                           </button>
                         </li>
                       ))}
