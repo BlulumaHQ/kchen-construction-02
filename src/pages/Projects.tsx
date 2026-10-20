@@ -28,8 +28,18 @@ export default function Projects() {
       { replace: true },
     );
   };
-  const setCategory = (c: string | null) => update((p) => (c ? p.set("type", c) : p.delete("type")));
-  const setSubcategory = (s: string | null) => update((p) => (s ? p.set("sub", s) : p.delete("sub")));
+  const setCategory = (c: string | null) =>
+    update((p) => {
+      p.delete("sub");
+      c ? p.set("type", c) : p.delete("type");
+    });
+  const setSubcategory = (s: string | null) =>
+    s
+      ? update((p) => {
+          p.set("type", "Commercial");
+          p.set("sub", s);
+        })
+      : undefined;
 
   const categories = useMemo(
     () => Array.from(new Set(projects.map((p) => p.category).filter(Boolean))).sort(),
