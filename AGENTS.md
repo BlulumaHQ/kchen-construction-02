@@ -1,1 +1,2 @@
 - Project data comes from the Bluluma CMS (read-only anon client). src/data/projectOverrides.ts holds only temporary, client-confirmed corrections pending CMS edits plus confirmed subcategory assignments — never guessed classifications.
+- Platform-host noindex is applied only via netlify/edge-functions/platform-noindex.ts (hostname-conditional X-Robots-Tag); never add global noindex in index.html, _headers or robots.txt, because the custom domain must stay indexable.
