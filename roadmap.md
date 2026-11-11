@@ -1,0 +1,3 @@
+- [x] Refine Home overlay header, eight-slide timing and restrained motion.
+- [x] Refine shared typography, spacing, cards, icons and backgrounds without changing content or functionality.
+- [x] Verify desktop/mobile, bilingual navigation, reduced motion and live banner images; commit changes.

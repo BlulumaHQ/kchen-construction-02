@@ -31,14 +31,14 @@ export default function Recognitions() {
         <h1 className="page-hero-title">{t("recog.pageTitle")}</h1>
       </section>
 
-      <section ref={ref} className="section-padding py-20">
+      <section ref={ref} className="section-padding section-major">
         <div className="max-w-5xl mx-auto">
           <p className="section-heading reveal-up">{t("recog.kicker")}</p>
           <h2 className="section-title mb-12 reveal-up">{t("recog.title")}</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {highlights.map((h, i) => (
-              <div key={h.title} className="reveal-up flex gap-4" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div key={h.title} className="reveal-up flex gap-4 border-t border-border pt-6" style={{ transitionDelay: `${i * 100}ms` }}>
+                <div className="shrink-0 flex h-10 w-8 items-start pt-1 text-primary">
                   <h.icon className="h-5 w-5" />
                 </div>
                 <div>
@@ -53,19 +53,19 @@ export default function Recognitions() {
 
       <section
         ref={logoRef}
-        className="section-padding py-20 bg-secondary"
+        className="section-padding section-related bg-secondary"
         style={{
-          backgroundImage: `linear-gradient(hsl(0 0% 100% / 0.78), hsl(0 0% 100% / 0.78)), url(${blueprintBg})`,
+          backgroundImage: `linear-gradient(hsl(var(--blueprint-wash)), hsl(var(--blueprint-wash))), url(${blueprintBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
-            <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
-            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-48 md:h-60 w-auto object-contain" />
-            <img src={certGVHBA} alt="GVHBA Member" className="mx-auto h-28 md:h-36 w-auto object-contain" />
-            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-32 md:h-40 w-auto object-contain" />
+            <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain cert-logo" />
+            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-48 md:h-60 w-auto object-contain cert-logo" />
+            <img src={certGVHBA} alt="GVHBA Member" className="mx-auto h-28 md:h-36 w-auto object-contain cert-logo" />
+            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-32 md:h-40 w-auto object-contain cert-logo" />
           </div>
         </div>
       </section>

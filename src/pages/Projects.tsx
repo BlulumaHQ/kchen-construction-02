@@ -78,7 +78,7 @@ export default function Projects() {
         <h1 className="page-hero-title">{t("projects.pageTitle")}</h1>
       </section>
 
-      <section className="section-padding py-16">
+      <section className="section-padding section-standard">
         <div className="max-w-6xl mx-auto">
           <ProjectFilter
             categories={categories}

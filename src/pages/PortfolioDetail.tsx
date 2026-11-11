@@ -52,13 +52,13 @@ export default function PortfolioDetail() {
         <div className="page-hero-overlay" />
       </section>
 
-      <section ref={ref} className="section-padding py-16">
+      <section ref={ref} className="section-padding section-standard">
         <div className="max-w-5xl mx-auto">
           <Link to={lp("/projects")} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-6 reveal-up">
             <ArrowLeft className="h-4 w-4" /> {t("portfolio.back")}
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-semibold mb-6 reveal-up">{project.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-normal leading-tight mb-6 reveal-up">{project.title}</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 reveal-up">
             {project.location && (
@@ -96,7 +96,7 @@ export default function PortfolioDetail() {
                   src={img}
                   alt={`${project.title} gallery ${i + 1}`}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.025] motion-reduce:transform-none"
                 />
               </button>
             ))}

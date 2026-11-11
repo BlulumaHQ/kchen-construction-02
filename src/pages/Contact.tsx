@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -25,11 +26,11 @@ export default function Contact() {
   return (
     <>
       <section className="section-padding pt-16 pb-8 bg-background">
-        <h1 className="text-4xl md:text-5xl font-semibold text-foreground">{t("contact.pageTitle")}</h1>
+        <h1 className="text-4xl md:text-6xl font-normal leading-tight text-foreground">{t("contact.pageTitle")}</h1>
         <p className="mt-2 text-muted-foreground">{t("contact.sub")}</p>
       </section>
 
-      <section ref={ref} className="section-padding pb-20 bg-background">
+      <section ref={ref} className="section-padding pb-16 md:pb-24 bg-background">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
           <form onSubmit={handleSubmit} className="space-y-5 reveal-up">
             <div>
@@ -48,12 +49,12 @@ export default function Contact() {
               <label className={labelCls}>{t("contact.message")}</label>
               <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${fieldCls} resize-none`} />
             </div>
-            <button type="submit" className="rounded bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+            <Button type="submit" className="h-auto px-6 py-2.5">
               {t("contact.send")}
-            </button>
+            </Button>
           </form>
 
-          <div className="reveal-up space-y-8" style={{ transitionDelay: "150ms" }}>
+          <div className="reveal-up space-y-8" style={{ transitionDelay: "80ms" }}>
             <div>
               <h3 className="text-lg font-semibold mb-4">{t("contact.infoTitle")}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{t("contact.infoBody")}</p>

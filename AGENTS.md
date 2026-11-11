@@ -1,2 +1,4 @@
 - Project data comes from the Bluluma CMS (read-only anon client). src/data/projectOverrides.ts holds only temporary, client-confirmed corrections pending CMS edits plus confirmed subcategory assignments — never guessed classifications.
 - Platform-host noindex is applied only via netlify/edge-functions/platform-noindex.ts (hostname-conditional X-Robots-Tag); never add global noindex in index.html, _headers or robots.txt, because the custom domain must stay indexable.
+- Shared visual rhythm, card treatments and motion live in semantic global CSS classes; keep page-title overlays independent of Home header shading to preserve inner-page imagery.
+- Home slide cadence is defined in src/lib/heroMotion.ts and tested independently; presentation changes must preserve the eight local image imports and their order.

@@ -15,14 +15,15 @@ export default function HowWeWork() {
   ];
 
   return (
-    <section ref={ref} className="section-padding py-20 bg-secondary">
+    <section ref={ref} className="section-padding section-standard bg-secondary">
       <div className="max-w-5xl mx-auto text-center">
         <p className="section-heading reveal-up">{t("how.kicker")}</p>
         <h2 className="section-title mb-4 reveal-up">{t("how.title")}</h2>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {steps.map((s, i) => (
             <div key={s.title} className="reveal-up flex flex-col items-center text-center" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="mb-4 flex w-full items-center justify-between border-b border-border pb-4 text-primary">
+                <span aria-hidden="true" className="text-xs font-normal text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
                 <s.icon className="h-6 w-6" />
               </div>
               <h3 className="text-sm font-semibold mb-1">{s.title}</h3>

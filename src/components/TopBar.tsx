@@ -11,11 +11,11 @@ export default function TopBar() {
   const zhHref = buildLangPath(pathname, "zh");
 
   return (
-    <div className="w-full bg-primary text-primary-foreground text-xs">
+    <div className="top-bar w-full bg-primary text-primary-foreground text-xs">
       <div className="section-padding flex h-9 items-center justify-between">
         <a
           href="tel:+16046182449"
-          className="flex items-center gap-2 font-medium hover:opacity-90 transition-opacity"
+          className="flex items-center gap-2 font-medium transition-colors hover:text-primary-foreground/80"
           aria-label={t("topbar.phoneLabel")}
         >
           <Phone className="h-3.5 w-3.5" aria-hidden="true" />
@@ -30,8 +30,8 @@ export default function TopBar() {
             to={enHref}
             className={`px-2 py-0.5 rounded transition-colors ${
               lang === "en"
-                ? "bg-white/15"
-                : "opacity-75 hover:opacity-100"
+                ? "bg-primary-foreground/15"
+                : "text-primary-foreground/75 hover:text-primary-foreground"
             }`}
             hrefLang="en"
             aria-current={lang === "en" ? "true" : undefined}
@@ -43,8 +43,8 @@ export default function TopBar() {
             to={zhHref}
             className={`px-2 py-0.5 rounded transition-colors ${
               lang === "zh"
-                ? "bg-white/15"
-                : "opacity-75 hover:opacity-100"
+                ? "bg-primary-foreground/15"
+                : "text-primary-foreground/75 hover:text-primary-foreground"
             }`}
             hrefLang="zh-Hant"
             aria-current={lang === "zh" ? "true" : undefined}
