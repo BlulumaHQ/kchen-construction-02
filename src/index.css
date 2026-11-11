@@ -28,6 +28,8 @@
     --footer-bg: 0 0% 15%;
     --footer-fg: 0 0% 85%;
     --hero-overlay: 0 0% 0%;
+    --page-title-overlay: 0 0% 23.5%;
+    --page-title-overlay-opacity: 0.7;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -72,6 +74,10 @@
 
   .page-hero-overlay {
     @apply absolute inset-0 bg-[hsl(var(--hero-overlay)/0.55)];
+  }
+
+  .page-title-overlay {
+    background-color: hsl(var(--page-title-overlay) / var(--page-title-overlay-opacity));
   }
 
   .page-hero-title {

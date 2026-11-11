@@ -1,7 +1,7 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Award, Shield, Users, Star } from "lucide-react";
-import heroImage from "@/assets/hero/dunns-famous-bc_01.webp";
+import heroImage from "@/assets/hero/03-dunns.webp";
 import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
@@ -27,7 +27,7 @@ export default function Recognitions() {
     <>
       <section className="page-hero">
         <img src={heroImage} alt={t("recog.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="page-hero-overlay" />
+        <div className="page-hero-overlay page-title-overlay" />
         <h1 className="page-hero-title">{t("recog.pageTitle")}</h1>
       </section>
 

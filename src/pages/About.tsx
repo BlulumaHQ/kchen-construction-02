@@ -1,6 +1,6 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import heroImage from "@/assets/hero/kuan-ti-temple_02.webp";
+import heroImage from "@/assets/hero/01-tian-jin-temple.webp";
 import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
 import kevinPhoto from "@/assets/people/kevin-chen.webp";
 import logo from "@/assets/logo-full-color.svg";
@@ -23,7 +23,7 @@ export default function About() {
     <>
       <section className="page-hero">
         <img src={heroImage} alt={t("about.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="page-hero-overlay" />
+        <div className="page-hero-overlay page-title-overlay" />
         <h1 className="page-hero-title">{t("about.pageTitle")}</h1>
       </section>
 

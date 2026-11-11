@@ -1,7 +1,7 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, Home, HardHat, ClipboardList, PenTool } from "lucide-react";
-import heroImage from "@/assets/hero/t-go-tea_06.webp";
+import heroImage from "@/assets/hero/07-t-go-tea.webp";
 import blueprintBg from "@/assets/backgrounds/kchen-background.webp";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -30,7 +30,7 @@ export default function Services() {
     <>
       <section className="page-hero">
         <img src={heroImage} alt={t("services.pageTitle")} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="page-hero-overlay" />
+        <div className="page-hero-overlay page-title-overlay" />
         <h1 className="page-hero-title">{t("services.pageTitle")}</h1>
       </section>
 
