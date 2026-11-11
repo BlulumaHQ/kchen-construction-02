@@ -6,6 +6,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
 import ProjectCard from "@/components/ProjectCard";
 import { useProjects } from "@/data/projects";
+import hero0 from "@/assets/hero/00-open-concept-kitchen.webp";
 import hero1 from "@/assets/hero/01-tian-jin-temple.webp";
 import hero2 from "@/assets/hero/02-avery.webp";
 import hero3 from "@/assets/hero/03-dunns.webp";
@@ -103,7 +104,7 @@ export default function Index() {
   const testimonialRef = useScrollReveal<HTMLElement>();
   const featuredRef = useScrollReveal<HTMLElement>();
 
-  const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8];
+  const heroImages = [hero0, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8];
   const [slideIdx, setSlideIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setSlideIdx((i) => nextHeroSlide(i, heroImages.length)), HERO_SLIDE_INTERVAL_MS);
