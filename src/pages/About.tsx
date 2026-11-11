@@ -86,7 +86,7 @@ export default function About() {
           <h2 className="section-title mb-10 reveal-up">{t("about.certsTitle")}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
             <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain cert-logo" />
-            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain cert-logo" />
+            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-48 md:h-60 w-auto object-contain cert-logo" />
             <img src={certGVHBA} alt="Greater Vancouver Home Builders' Association Member" className="mx-auto h-28 md:h-36 w-auto object-contain cert-logo" />
             <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-28 md:h-36 w-auto object-contain cert-logo" />
           </div>
