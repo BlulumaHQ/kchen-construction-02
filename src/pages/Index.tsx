@@ -6,16 +6,14 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import HowWeWork from "@/components/HowWeWork";
 import ProjectCard from "@/components/ProjectCard";
 import { useProjects } from "@/data/projects";
-import hero1 from "@/assets/hero/angus-dr_01.webp";
-import hero2 from "@/assets/hero/avery_03.webp";
-import hero3 from "@/assets/hero/ballatree-rd_feature.webp";
-import hero4 from "@/assets/hero/dunns-famous-bc_01.webp";
-import hero5 from "@/assets/hero/granville_feature.webp";
-import hero6 from "@/assets/hero/kuan-ti-temple_02.webp";
-import hero7 from "@/assets/hero/madsen_03.webp";
-import hero8 from "@/assets/hero/no2-rd_03.webp";
-import hero9 from "@/assets/hero/sukis-salon_06.webp";
-import hero10 from "@/assets/hero/t-go-tea_06.webp";
+import hero1 from "@/assets/hero/01-tian-jin-temple.webp";
+import hero2 from "@/assets/hero/02-avery.webp";
+import hero3 from "@/assets/hero/03-dunns.webp";
+import hero4 from "@/assets/hero/04-sukis.webp";
+import hero5 from "@/assets/hero/05-no2-rd.webp";
+import hero6 from "@/assets/hero/06-residential-kitchen.webp";
+import hero7 from "@/assets/hero/07-t-go-tea.webp";
+import hero8 from "@/assets/hero/08-ballatree.webp";
 import cert2510 from "@/assets/cert-2-5-10-warranty.png";
 import certNHW from "@/assets/cert-national-home-warranty.png";
 import certGVHBA from "@/assets/cert-gvhba-member.png";
@@ -104,7 +102,7 @@ export default function Index() {
   const testimonialRef = useScrollReveal<HTMLElement>();
   const featuredRef = useScrollReveal<HTMLElement>();
 
-  const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
+  const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8];
   const [slideIdx, setSlideIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setSlideIdx((i) => (i + 1) % heroImages.length), 3000);
