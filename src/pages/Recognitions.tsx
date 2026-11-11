@@ -63,9 +63,9 @@ export default function Recognitions() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
             <img src={cert2510} alt="2-5-10 Year Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
-            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certNHW} alt="National Home Warranty" className="mx-auto h-48 md:h-60 w-auto object-contain" />
             <img src={certGVHBA} alt="GVHBA Member" className="mx-auto h-28 md:h-36 w-auto object-contain" />
-            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-28 md:h-36 w-auto object-contain" />
+            <img src={certGeorgie} alt="Georgie Awards" className="mx-auto h-32 md:h-40 w-auto object-contain" />
           </div>
         </div>
       </section>

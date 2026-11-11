@@ -83,10 +83,10 @@ function HeroContactForm() {
 }
 
 const certs = [
-  { src: cert2510, alt: "2-5-10 Year Warranty" },
-  { src: certNHW, alt: "National Home Warranty" },
-  { src: certGVHBA, alt: "Greater Vancouver Home Builders' Association Member" },
-  { src: certGeorgie, alt: "Georgie Awards" },
+  { src: cert2510, alt: "2-5-10 Year Warranty", className: "h-24 md:h-32" },
+  { src: certNHW, alt: "National Home Warranty", className: "h-40 md:h-56" },
+  { src: certGVHBA, alt: "Greater Vancouver Home Builders' Association Member", className: "h-24 md:h-32" },
+  { src: certGeorgie, alt: "Georgie Awards", className: "h-28 md:h-36" },
 ];
 
 export default function Index() {
@@ -171,7 +171,7 @@ export default function Index() {
           <p className="section-heading reveal-up">{t("home.certsKicker")}</p>
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-10 items-center reveal-up">
             {certs.map((c) => (
-              <img key={c.alt} src={c.src} alt={c.alt} className="mx-auto h-24 w-auto object-contain md:h-32" />
+              <img key={c.alt} src={c.src} alt={c.alt} className={`mx-auto w-auto object-contain ${c.className}`} />
             ))}
           </div>
         </div>
